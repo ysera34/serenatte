@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="tilesBase" template="/WEB-INF/views/tiles/layout.jsp">
+		<put-attribute name="title" value="Serenatte"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp"></put-attribute>
+		<put-attribute name="nav" value="/WEB-INF/views/tiles/nav.jsp"></put-attribute>
+		<put-attribute name="section" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="*" extends="tilesBase">
+		<put-attribute name="section" value="/WEB-INF/views/{1}.jsp"></put-attribute>
+	</definition>
+
+	<definition name="*/*" extends="tilesBase">
+		<put-attribute name="section" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="*/*/*" extends="tilesBase">
+		<put-attribute name="section" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

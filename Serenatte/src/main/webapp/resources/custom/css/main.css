@@ -1,0 +1,73 @@
+@CHARSET "UTF-8";
+
+/* ////////////////////////////// */
+/* ///////   main frame   /////// */
+/* ////////////////////////////// */
+
+body {
+	margin: 0 0 0 0;
+/* 	좌우 스크롤 방지 */
+	overflow-x: hidden;
+	overflow-y: auto; 
+	border: 1px solid white;
+}
+
+#uppermost-header {
+	height: 110px;
+/* 	border-bottom: 1px solid gray; */
+}
+
+#uppermost-nav {
+	height: 50px;
+/* 	border-bottom: 1px solid gray; */
+}
+
+#uppermost-section {
+	min-height: 700px;
+}
+
+#uppermost-footer {
+	height: 110px;
+}
+
+/* ////////////////////////////// */
+/* ///////     header     /////// */
+/* ////////////////////////////// */
+
+.header-logo{
+	
+}
+
+#headerlogo{
+	position: absolute;
+	left: 23.6842%;
+}
+
+.loginBox{
+	margin-top: 60px;
+	float: right;
+}
+
+/* ////////////////////////////// */
+/* ///////      navi      /////// */
+/* ////////////////////////////// */
+
+#brandimg{
+	margin-top: -10px;
+}
+
+/* ////////////////////////////// */
+/* ///////     footer     /////// */
+/* ////////////////////////////// */
+
+#footer-list{
+	text-align: center;
+}
+
+/* ////////////////////////////// */
+/* ///////    register    /////// */
+/* ////////////////////////////// */
+
+#joinform > div {
+	margin-bottom: 25px;
+}

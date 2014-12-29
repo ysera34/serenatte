@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.serene.latte.dao.UserMapper">
+	<insert id="userRegister" parameterType="UserDTO">
+		  INSERT INTO USERS(userId, password, nickname, email)
+      		VALUES (#{userId}, #{password}, #{nickname}, #{email})
+	</insert>
+	
+	<select id="userLogin" parameterType="string" resultType="UserDTO">
+		SELECT userId, password, nickname, email FROM USERS
+		where userId=#{userId} and password=#{password}
+	</select>
+
+</mapper>
