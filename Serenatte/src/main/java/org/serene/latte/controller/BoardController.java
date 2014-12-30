@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class BoardController {
 	
-	@Autowired
-	BoardService boardService;
+//	@Autowired
+//	BoardService boardService;
 	
 	@RequestMapping("newContents.html")
 	public String newContents(){
@@ -30,7 +30,7 @@ public class BoardController {
 	public String addContents(@RequestParam String title, @RequestParam String content){
 		
 		
-		boardService.addContents(title, content);
+//		boardService.addContents(title, content);
 		
 		return "board/boardList";
 	}
