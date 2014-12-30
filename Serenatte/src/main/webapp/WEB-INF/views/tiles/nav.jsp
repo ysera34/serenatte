@@ -28,7 +28,7 @@
       <ul class="nav navbar-nav">
         <li><a href="#">매장보기</a></li>
         <li><a href="#">매장등록</a></li>
-        <li><a href="newContents.html">자유게시판</a></li>
+        <li><a href="boardList.html">자유게시판</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

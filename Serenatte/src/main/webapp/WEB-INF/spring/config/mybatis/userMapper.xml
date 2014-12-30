@@ -3,8 +3,8 @@
 
 <mapper namespace="org.serene.latte.dao.UserMapper">
 	<insert id="userRegister" parameterType="UserDTO">
-		  INSERT INTO USERS(userId, password, nickname, email)
-      		VALUES (#{userId}, #{password}, #{nickname}, #{email})
+		INSERT INTO USERS(userId, password, nickname, email) 
+		VALUES (#{userId}, #{password}, #{nickname}, #{email})
 	</insert>
 	
 	<select id="userLogin" parameterType="string" resultType="UserDTO">

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.serene.latte.dao.BoardMapper">
+	<parameterMap type="" id="">
+		<parameter property=""/>
+	</parameterMap>
+	<insert id="addContents">
+		INSERT INTO FBOARDS(userId, sortNum, title, viewCount, likeCount, content)
+		VALUES (
+		#{(SELECT userId FROM USERS where userId=#{userId})},
+		#{sortNum}, #{title}, #{viewCount}, #{likeCount},
+		#{}
+		);
+		
+	</insert>
+</mapper>
