@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- <!DOCTYPE html> -->
 <!-- <html> -->
 <!-- <head> -->
@@ -33,26 +34,28 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1,001</td>
-								<td>Loremdfdfsfdsf</td>
-				     			<td>ipsum</td>
-				     			<td>ysera</td>
-				     			<td>dolor</td>
-				     			<td>sit</td>
-				     			<td><button type="button" class="btn btn-default">수정</button>
-				     			<button type="button" class="btn btn-default">삭제</button></td>
-							</tr>
-							<tr>
-								<td>1,001</td>
-								<td>Lorem</td>
-				     			<td>ipsummerian</td>
-				     			<td>ysera</td>
-				     			<td>dolor</td>
-				     			<td>sit</td>
-				     			<td><button type="button" class="btn btn-default">수정</button>
-				     			<button type="button" class="btn btn-default">삭제</button></td>
-							</tr>
+							<%-- <c:forEach var="" items="" varStatus=""> --%>
+							<%--
+								items : 반복 데이터가 있는 아이템 collection
+								begin : 시작번호 기본값0
+								end : 종료번호
+								var : 현재 아이템의 변수 이름
+								varStatus : 반복 상태 값을 지닌 변수
+							--%>
+							<c:forEach var="boardDTO" items="${boardList}" varStatus="status">
+								<tr>
+									<td>${boardDTO.listNum}</td> <%-- or <td>${status.count}</td> 일련번호--%>
+									<td>
+										<a href="#">${boardDTO.title}</a>
+									</td>
+					     			<td>${boardDTO.userId}</td>
+					     			<td>${boardDTO.viewCount}</td>
+					     			<td>${boardDTO.likeCount}</td>
+					     			<td>${boardDTO.writeDate}</td>
+					     			<td><button type="button" class="btn btn-default">수정</button>
+					     			<button type="button" class="btn btn-default">삭제</button></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 				</div><!-- table -->

@@ -13,12 +13,12 @@ body {
 }
 
 #uppermost-header {
-	height: 110px;
+	min-height: 110px;
 /* 	border-bottom: 1px solid gray; */
 }
 
 #uppermost-nav {
-	height: 50px;
+	min-height: 50px;
 /* 	border-bottom: 1px solid gray; */
 }
 
@@ -55,6 +55,10 @@ body {
 #brandimg{
 	margin-top: -10px;
 }
+
+/* .navbar{ */
+/* 	margin-bottom: 0px; */
+/* } */
 
 /* ////////////////////////////// */
 /* ///////     footer     /////// */

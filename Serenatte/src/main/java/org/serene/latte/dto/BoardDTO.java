@@ -1,34 +1,33 @@
 package org.serene.latte.dto;
 
-import java.util.Date;
 
 public class BoardDTO {
 	
-	private int num;
+	private int listNum;
 	private String title;
-	private String writer;
-	private Date writeDate;
+	private String userId;
+	private String writeDate;
 	private int viewCount;
 	private int likeCount;
 	private String content;
 
 	public BoardDTO() {}
-	public BoardDTO(int num, String title, String writer, Date writeDate,
+	public BoardDTO(int listNum, String title, String userId, String writeDate,
 			int viewCount, int likeCount, String content) {
-		this.num = num;
+		this.listNum = listNum;
 		this.title = title;
-		this.writer = writer;
+		this.userId = userId;
 		this.writeDate = writeDate;
 		this.viewCount = viewCount;
 		this.likeCount = likeCount;
 		this.content = content;
 	}
 	
-	public int getNum() {
-		return num;
+	public int getlistNum() {
+		return listNum;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setlistNum(int listNum) {
+		this.listNum = listNum;
 	}
 	public String getTitle() {
 		return title;
@@ -36,16 +35,16 @@ public class BoardDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getWriter() {
-		return writer;
+	public String getuserId() {
+		return userId;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setuserId(String userId) {
+		this.userId = userId;
 	}
-	public Date getwriteDate() {
+	public String getwriteDate() {
 		return writeDate;
 	}
-	public void setwriteDate(Date writeDate) {
+	public void setwriteDate(String writeDate) {
 		this.writeDate = writeDate;
 	}
 	public int getViewCount() {
@@ -69,8 +68,8 @@ public class BoardDTO {
 	
 	@Override
 	public String toString() {
-		return "BoardDTO [num=" + num + ", title=" + title + ", writer="
-				+ writer + ", writeDate=" + writeDate + ", viewCount="
+		return "BoardDTO [listNum=" + listNum + ", title=" + title + ", userId="
+				+ userId + ", writeDate=" + writeDate + ", viewCount="
 				+ viewCount + ", likeCount=" + likeCount + ", content="
 				+ content + "]";
 	}

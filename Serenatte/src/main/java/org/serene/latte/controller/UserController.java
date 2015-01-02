@@ -5,7 +5,6 @@ import org.serene.latte.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,9 +37,10 @@ public class UserController {
 		if(userDTO!=null){
 			model.addAttribute("userDTO", userDTO);
 			return "main/home";
-		} 
-		return "redirect:loginform.html";
-
+		} else {
+			model.addAttribute("msg", "회원정보를 확인해주세요");
+			return "user/login";
+		}
 	}
 	
 	@RequestMapping("registerform.html")

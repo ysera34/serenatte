@@ -14,4 +14,22 @@
 <!-- 		); -->
 		
 <!-- 	</insert> -->
+
+	<insert id="addContents" parameterType="string">
+		INSERT INTO FBOARDS(title, content, userId)
+		VALUES (#{title}, #{content}, #{userId});
+	</insert>
+	
+	<!-- select test -->
+	<select id="select" resultType="BoardDTO">
+		select listNum, title, content, writeDate, viewCount, likeCount
+		from FBOARDS
+	</select>
+	
+	<select id="boardList" resultType="BoardDTO">
+		select listNum, title, userId, content, writeDate, viewCount, likeCount
+		from FBOARDS
+		ORDER BY listNum DESC
+	</select>
+	
 </mapper>

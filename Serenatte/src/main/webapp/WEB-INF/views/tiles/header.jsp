@@ -27,17 +27,18 @@
 </c:choose>
 <div class="container">
 <div class="container-fluid">
+	
 	<div class="row">
-		<div class="col-xs-6 col-md-3"></div>
+		<div class="col-xs-3 col-md-3"></div>
 		<div class="col-xs-6 col-md-6">
 			<div class="header-logo">
 				<a href="/latte/">
 					<img id="headerlogo" src="resources/custom/images/logo/logo.jpg">
 				</a>
-			</div>
+		</div>
 		</div>
 		<!-- login -->
-		<div class="col-xs-6 col-md-3">
+		<div class="col-xs-3 col-md-3">
 			<div class="loginBox">
 				<button type="button" id="${loginId}" class="btn btn-default" onclick="location='${loginurl}'">${loginbtn}</button>
 				<button type="button" id="${loginId}" class="btn btn-default" onclick="location='${registerurl}'">${registerbtn}</button>
@@ -53,7 +54,7 @@ $(document).ready(function(){
 		if(res){
 			location.replace("logout.html");
 		} else {
-			return false;
+			history.go(0);
 		}
 	});
 });
