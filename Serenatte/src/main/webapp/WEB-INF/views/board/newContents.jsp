@@ -44,7 +44,6 @@
 					<div class="col-lg-offset-5 col-lg-4">
 						<button type="submit" class="btn btn-default">글썼어영</button>
 						<button type="button" class="btn btn-default" onclick="location='boardList.html'">목록보기</button>
-						<button type="button" class="btn btn-default" onclick="location='boardSelect.html'">테스트</button>
 					</div>
 				</div>
 				

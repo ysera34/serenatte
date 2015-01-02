@@ -12,7 +12,6 @@
 <!-- 		#{sortNum}, #{title}, #{viewCount}, #{likeCount}, -->
 <!-- 		#{} -->
 <!-- 		); -->
-		
 <!-- 	</insert> -->
 
 	<insert id="addContents" parameterType="string">
@@ -20,16 +19,15 @@
 		VALUES (#{title}, #{content}, #{userId});
 	</insert>
 	
-	<!-- select test -->
-	<select id="select" resultType="BoardDTO">
-		select listNum, title, content, writeDate, viewCount, likeCount
-		from FBOARDS
-	</select>
-	
 	<select id="boardList" resultType="BoardDTO">
 		select listNum, title, userId, content, writeDate, viewCount, likeCount
 		from FBOARDS
 		ORDER BY listNum DESC
 	</select>
-	
+
+	<select id="viewContent" parameterType="string" resultType="BoardDTO">
+		select listNum, title, userId, content, writeDate, viewCount, likeCount
+		from FBOARDS
+		where listNum=#{listNum}
+	</select>
 </mapper>

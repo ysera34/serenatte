@@ -30,7 +30,6 @@
 								<th>조회수</th>
 								<th>추천수</th>
 								<th>작성일</th>
-								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -46,14 +45,12 @@
 								<tr>
 									<td>${boardDTO.listNum}</td> <%-- or <td>${status.count}</td> 일련번호--%>
 									<td>
-										<a href="#">${boardDTO.title}</a>
+										<a href="viewContent.html?listNum=${boardDTO.listNum}">${boardDTO.title}</a>
 									</td>
 					     			<td>${boardDTO.userId}</td>
 					     			<td>${boardDTO.viewCount}</td>
 					     			<td>${boardDTO.likeCount}</td>
 					     			<td>${boardDTO.writeDate}</td>
-					     			<td><button type="button" class="btn btn-default">수정</button>
-					     			<button type="button" class="btn btn-default">삭제</button></td>
 								</tr>
 							</c:forEach>
 						</tbody>

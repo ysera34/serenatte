@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,23 +48,32 @@ public class BoardController {
 		return "board/boardList";
 	}
 	
-	//select test
-	@RequestMapping("boardSelect.html")
-	public String boardSelect(BoardDTO boardDTO, Model model){
-		
-		boardDTO = boardService.boardSelect();
-		model.addAttribute("boardDTO", boardDTO);
-		return "board/boardList";
-	}
-	
 	/*
 	 * insert new contents
 	 */
 	@RequestMapping(value="addContents.html", method=RequestMethod.POST)
 	public String addContents(@RequestParam String title, @RequestParam String content,
 			@RequestParam String userId){
+		
 		boardService.addContents(title, content, userId);
 
 		return "redirect:boardList.html";
 	}
+	
+	/*
+	 * contentForm
+	 * a href="viewContent.html?listNum=${boardDTO.listNum}"
+	 */
+	@RequestMapping(value="viewContent.html", method=RequestMethod.GET)
+	public String viewContent(@RequestParam String listNum, BoardDTO boardDTO, Model model){
+		
+		boardDTO = boardService.viewContent(listNum);
+		model.addAttribute("boardDTO", boardDTO);
+		
+		return "board/contentForm";
+	}
+	
+	
+	
+	
 }

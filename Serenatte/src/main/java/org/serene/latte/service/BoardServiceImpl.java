@@ -18,15 +18,14 @@ public class BoardServiceImpl implements BoardService {
 		boardMapper.addContents(title, content, userId);
 	}
 
-	//select test
-	@Override
-	public BoardDTO boardSelect() {
-		return boardMapper.select();
-	}
-
 	@Override
 	public List<BoardDTO> boardList() {
 		return boardMapper.boardList();
+	}
+
+	@Override
+	public BoardDTO viewContent(String listNum) {
+		return boardMapper.viewContent(listNum);
 	}
 
 }
