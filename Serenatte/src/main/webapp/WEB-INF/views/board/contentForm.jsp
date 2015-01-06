@@ -25,7 +25,7 @@
             
             <div class="form-group">
                <div class="col-lg-offset-2 col-lg-3">
-                  <p>작성자 : ${userDTO.nickname}님</p>
+                  <p>작성자 : ${boardDTO.userId}님</p>
                </div>
                <div class="col-lg-offset-2 col-lg-5">
                   <p>${boardDTO.writeDate}</p>

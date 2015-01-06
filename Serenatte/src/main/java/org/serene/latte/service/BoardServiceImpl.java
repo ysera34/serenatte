@@ -19,13 +19,21 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardDTO> boardList() {
-		return boardMapper.boardList();
+	public List<BoardDTO> boardList(int startNum, int endNum) {
+		return boardMapper.boardList(startNum, endNum);
+	}
+	
+	@Override
+	public BoardDTO viewContent(String listNum) {
+		boardMapper.viewCount(listNum);
+		return boardMapper.viewContent(listNum);
 	}
 
 	@Override
-	public BoardDTO viewContent(String listNum) {
-		return boardMapper.viewContent(listNum);
+	public int makePage() {
+		return boardMapper.makePage();
 	}
+
+	
 
 }

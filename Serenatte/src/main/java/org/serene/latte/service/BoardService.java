@@ -6,10 +6,12 @@ import org.serene.latte.dto.BoardDTO;
 
 public interface BoardService {
 
-	public List<BoardDTO> boardList();
+	public List<BoardDTO> boardList(int startNum, int endNum);
 
 	public void addContents(String title, String content, String userId);
 
 	public BoardDTO viewContent(String listNum);
+
+	public int makePage();
 
 }

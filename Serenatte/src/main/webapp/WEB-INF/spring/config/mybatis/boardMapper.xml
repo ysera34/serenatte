@@ -19,15 +19,34 @@
 		VALUES (#{title}, #{content}, #{userId});
 	</insert>
 	
+	<update id="viewCount">
+		UPDATE FBOARDS
+		set viewCount=viewCount+1
+		where listNum=#{listNum}
+	</update>
+	
 	<select id="boardList" resultType="BoardDTO">
-		select listNum, title, userId, content, writeDate, viewCount, likeCount
-		from FBOARDS
-		ORDER BY listNum DESC
+<!-- 		select listNum, title, userId, writeDate, viewCount, likeCount, -->
+<!-- 		(SELECT count(*) FROM serenatte.fboards) as counts -->
+<!-- 		FROM FBOARDS -->
+<!-- 		ORDER BY listNum DESC -->
+
+		SELECT * FROM 
+		(select @rownum :=@rownum +1 as row, A.* from
+		(select * from fboards order by listnum DESC)A,
+		(select @rownum :=0)B)C
+		where
+		C.row between #{startNum} and #{endNum}
 	</select>
 
 	<select id="viewContent" parameterType="string" resultType="BoardDTO">
-		select listNum, title, userId, content, writeDate, viewCount, likeCount
-		from FBOARDS
+		select listNum, title, userId, writeDate, viewCount, likeCount,
+		CAST((CONTENT) AS CHAR(10000) CHARACTER SET UTF8) AS CONTENT
+		FROM FBOARDS
 		where listNum=#{listNum}
+	</select>
+	
+	<select id="makePage" resultType="int">
+		SELECT count(*) FROM FBOARDS
 	</select>
 </mapper>

@@ -75,3 +75,12 @@ body {
 #joinform > div {
 	margin-bottom: 25px;
 }
+
+/* ////////////////////////////// */
+/* ///////   boardlist   /////// */
+/* ////////////////////////////// */
+
+#board-pagination {
+	text-align: center;
+}
+
