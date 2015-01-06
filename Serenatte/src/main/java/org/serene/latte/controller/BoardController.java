@@ -41,7 +41,6 @@ public class BoardController {
 	@RequestMapping("boardList.html")
 	public String boardList(BoardDTO boardDTO, PageDTO pageDTO,
 			Model model){
-
 		//페이징
 		if(pageDTO.getPageNo()==0)
 			pageDTO.setPageNo(1);
@@ -49,8 +48,9 @@ public class BoardController {
 		if (pageDTO.getPageSize()==0)
 			pageDTO.setPageSize(10);
 		pageDTO.setPageSize(pageDTO.getPageSize());
-		pageDTO.setTotalCount(boardService.makePage());
-		pageDTO = makePage.makePaging(pageDTO);
+		pageDTO.setTotalCount(boardService.makePage()); //총 content 개수 알아오기
+		
+		pageDTO = makePage.makePaging(pageDTO); 
 		model.addAttribute("pageDTO", pageDTO);
 		
 		int startNum = (pageDTO.getPageNo()-1)*pageDTO.getPageSize()+1;
