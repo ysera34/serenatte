@@ -81,7 +81,7 @@ public class BoardController {
 	 * a href="viewContent.html?listNum=${boardDTO.listNum}"
 	 */
 	@RequestMapping(value="viewContent.html", method=RequestMethod.GET)
-	public String viewContent(@RequestParam String listNum, BoardDTO boardDTO,
+	public String viewContent(@RequestParam int listNum, BoardDTO boardDTO,
 			Model model){
 		boardDTO = boardService.viewContent(listNum);
 		model.addAttribute("boardDTO", boardDTO);

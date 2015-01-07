@@ -40,7 +40,7 @@
             
             <div class="form-group">
 				<div class="col-lg-offset-2 col-lg-2">
-					<button type="button" class="btn btn-default" onclick="location='boardList.html?PageNo=${pageDTO.pageNo}&pageSize=${pageDTO.pageSize}'">목록</button>
+					<button type="button" class="btn btn-default" onclick="location='boardList.html'">목록</button>
 					<button type="button" class="btn btn-default" onclick="location='newContents.html'">글쓰기</button>
 				</div>
 				<div class="col-lg-offset-2 col-lg-4">

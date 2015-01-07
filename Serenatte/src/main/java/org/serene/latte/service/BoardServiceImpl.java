@@ -24,7 +24,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public BoardDTO viewContent(String listNum) {
+	public BoardDTO viewContent(int listNum) {
 		boardMapper.viewCount(listNum);
 		return boardMapper.viewContent(listNum);
 	}
@@ -37,14 +37,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void deleteContent(int listNum) {
 		boardMapper.deleteContent(listNum);
-		
 	}
 
 	@Override
 	public BoardDTO editContent(BoardDTO boardDTO) {
 		boardMapper.editContent(boardDTO);
-		String listNum = String.valueOf(boardDTO.getlistNum());
-		return boardMapper.viewContent(listNum);
+		return boardMapper.viewContent(boardDTO.getlistNum());
 	}
 
 	

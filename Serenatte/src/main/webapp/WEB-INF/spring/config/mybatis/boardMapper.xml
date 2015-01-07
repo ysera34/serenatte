@@ -39,7 +39,7 @@
 		C.row between #{startNum} and #{endNum}
 	</select>
 
-	<select id="viewContent" parameterType="string" resultType="BoardDTO">
+	<select id="viewContent" resultType="BoardDTO">
 		select listNum, title, userId, writeDate, viewCount, likeCount,
 		CAST((CONTENT) AS CHAR(10000) CHARACTER SET UTF8) AS CONTENT
 		FROM FBOARDS

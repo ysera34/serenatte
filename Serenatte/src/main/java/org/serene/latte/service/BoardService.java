@@ -10,7 +10,7 @@ public interface BoardService {
 
 	public void addContents(String title, String content, String userId);
 
-	public BoardDTO viewContent(String listNum);
+	public BoardDTO viewContent(int listNum);
 
 	public int makePage();
 

@@ -57,6 +57,11 @@ public class UserController {
 		return "redirect:loginform.html";
 	}
 	
+	@RequestMapping("registeredit.html")
+	public String registeredit(){
+		return "user/userEdit";
+	}
+	
 	@RequestMapping("logout.html")
 	public String logout(WebRequest request, SessionStatus status){
 		status.setComplete();

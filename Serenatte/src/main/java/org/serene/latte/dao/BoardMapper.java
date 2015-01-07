@@ -12,9 +12,9 @@ public interface BoardMapper {
 	public void addContents(@Param("title") String title, @Param("content") String content,
 			@Param("userId") String userId);
 
-	public void viewCount(@Param("listNum") String listNum);
+	public void viewCount(@Param("listNum") int listNum);
 
-	public BoardDTO viewContent(@Param("listNum") String listNum);
+	public BoardDTO viewContent(@Param("listNum") int listNum);
 
 	public int makePage();
 
