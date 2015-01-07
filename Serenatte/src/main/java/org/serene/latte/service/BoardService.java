@@ -14,4 +14,8 @@ public interface BoardService {
 
 	public int makePage();
 
+	public void deleteContent(int listNum);
+
+	public BoardDTO editContent(BoardDTO boardDTO);
+
 }

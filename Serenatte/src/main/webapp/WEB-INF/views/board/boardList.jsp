@@ -23,6 +23,9 @@ $(document).ready(function(){
 	//활성 페이지 색변경
 	var pageNo=${pageDTO.pageNo};
 	$("a[id$="+pageNo+"]").parent().attr("class","active");
+	//select tag에 페이지 사이즈 나타내기
+	var pageSize=${pageDTO.pageSize};
+	$("#pSizeSlt option[value="+pageSize+"]").attr("selected","selected");
 });
 </script>
 <c:choose>
@@ -49,9 +52,9 @@ $(document).ready(function(){
 					<form id="pSizeForm" action="boardList.html">
 						<select id="pSizeSlt" class="form-control" name="pageSize">
 							<option>선택하세요</option><!-- default -->
-							<option value="5">5개씩 보기</option>
-							<option value="10">10개씩 보기</option>
-							<option value="15">15개씩 보기</option>	
+							<option value="5">5개씩</option>
+							<option value="10">10개씩</option>
+							<option value="15">15개씩</option>	
 						</select>
 						<input id="pSizeInput" type="submit" style="display: none;">
 					</form>
@@ -63,12 +66,12 @@ $(document).ready(function(){
 					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>#</th>
-								<th>제목</th>
-								<th>작성자</th>
-								<th>조회수</th>
-								<th>추천수</th>
-								<th>작성일</th>
+								<th id="th-listNum">번호</th>
+								<th id="th-title">제목</th>
+								<th id="th-user">작성자</th>
+								<th id="th-views">조회수</th>
+								<th id="th-likes">추천수</th>
+								<th id="th-wDate">작성일</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -83,14 +86,14 @@ $(document).ready(function(){
 							<c:forEach var="boardDTO" items="${boardList}"
 							varStatus="status">
 								<tr>
-									<td>${boardDTO.listNum}</td> <%-- or <td>${status.count}</td> 일련번호--%>
-									<td>
+									<td id="td-listNum">${boardDTO.listNum}</td> <%-- or <td>${status.count}</td> 일련번호--%>
+									<td id="td-title">&nbsp;&nbsp;&nbsp;
 										<a href="viewContent.html?listNum=${boardDTO.listNum}">${boardDTO.title}</a>
 									</td>
-					     			<td>${boardDTO.userId}</td>
-					     			<td>${boardDTO.viewCount}</td>
-					     			<td>${boardDTO.likeCount}</td>
-					     			<td>${boardDTO.writeDate}</td>
+					     			<td id="td-user">${boardDTO.userId}</td>
+					     			<td id="td-views">${boardDTO.viewCount}</td>
+					     			<td id="td-likes">${boardDTO.likeCount}</td>
+					     			<td id="td-wDate">${boardDTO.writeDate}</td>
 								</tr>
 							</c:forEach>
 						</tbody>

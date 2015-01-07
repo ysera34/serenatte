@@ -49,4 +49,15 @@
 	<select id="makePage" resultType="int">
 		SELECT count(*) FROM FBOARDS
 	</select>
+	
+	<delete id="deleteContent">
+		DELETE FROM FBOARDS
+		where listNum=#{listNum};
+	</delete>
+
+	<update id="editContent">
+		UPDATE FBOARDS
+		set content=#{content}
+		where listNum=#{listNum}
+	</update>
 </mapper>

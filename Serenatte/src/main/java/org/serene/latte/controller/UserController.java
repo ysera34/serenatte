@@ -61,6 +61,7 @@ public class UserController {
 	public String logout(WebRequest request, SessionStatus status){
 		status.setComplete();
 		request.removeAttribute("userDTO", WebRequest.SCOPE_SESSION);
+		request.removeAttribute("pageDTO", WebRequest.SCOPE_SESSION);
 		return "redirect:/";
 	}
 	

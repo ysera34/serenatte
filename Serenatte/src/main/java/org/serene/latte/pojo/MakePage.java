@@ -9,7 +9,7 @@ public class MakePage {
 	public PageDTO makePaging(PageDTO pageDTO) {
 		//default
 //		if (pageDTO.getPageNo()==0)
-//			pageDTO.setPageNo(1);
+//		pageDTO.setPageNo(1);
 //		if (pageDTO.getPageSize()==0)
 //			pageDTO.setPageSize(10);
 		if (pageDTO.getTotalCount()==0)
@@ -36,8 +36,8 @@ public class MakePage {
 		pageDTO.setStartPageNo(startPage);
 		pageDTO.setEndPageNo(endPage);
 		
-		boolean isNowFirst = pageDTO.getPageNo() ==1?true:false;
-		boolean isNowFinal = pageDTO.getPageNo() ==finalPage?true:false;
+		boolean isNowFirst = pageDTO.getPageNo()==1?true:false;
+		boolean isNowFinal = pageDTO.getPageNo()==finalPage?true:false;
 
 		if(isNowFirst) {
 			pageDTO.setPrevPageNo(1);

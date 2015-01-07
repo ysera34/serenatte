@@ -15,8 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("pageDTO")
 public class BoardController {
 	
 	@Autowired
@@ -27,11 +29,6 @@ public class BoardController {
 	
 	@Resource(name="makePage")
 	MakePage makePage;
-	
-	@RequestMapping("newContents.html")
-	public String newContents(){
-		return "board/newContents";
-	}
 	
 	/*
 	 * select all contents
@@ -64,15 +61,18 @@ public class BoardController {
 		return "board/boardList";
 	}
 	
+	@RequestMapping("newContents.html")
+	public String newContents(){
+		return "board/newContents";
+	}
+	
 	/*
 	 * insert new contents
 	 */
 	@RequestMapping(value="addContents.html", method=RequestMethod.POST)
 	public String addContents(@RequestParam String title, @RequestParam String content,
 			@RequestParam String userId){
-		
 		boardService.addContents(title, content, userId);
-
 		return "redirect:boardList.html";
 	}
 	
@@ -81,16 +81,24 @@ public class BoardController {
 	 * a href="viewContent.html?listNum=${boardDTO.listNum}"
 	 */
 	@RequestMapping(value="viewContent.html", method=RequestMethod.GET)
-	public String viewContent(@RequestParam String listNum, BoardDTO boardDTO, Model model){
-		
+	public String viewContent(@RequestParam String listNum, BoardDTO boardDTO,
+			Model model){
 		boardDTO = boardService.viewContent(listNum);
-		
 		model.addAttribute("boardDTO", boardDTO);
-		
 		return "board/contentForm";
 	}
 	
+	@RequestMapping(value="editContent.html", method=RequestMethod.POST)
+	public String editContent(BoardDTO boardDTO, Model model){
+		boardDTO = boardService.editContent(boardDTO);
+		model.addAttribute("boardDTO", boardDTO);
+		return "board/contentForm";
+	}
 	
-	
+	@RequestMapping(value="deleteContent.html")
+	public String deleteContent(BoardDTO boardDTO){
+		boardService.deleteContent(boardDTO.getlistNum());
+		return "redirect:boardList.html";
+	}
 	
 }

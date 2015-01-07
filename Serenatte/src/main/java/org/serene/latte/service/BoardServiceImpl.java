@@ -34,6 +34,19 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.makePage();
 	}
 
+	@Override
+	public void deleteContent(int listNum) {
+		boardMapper.deleteContent(listNum);
+		
+	}
+
+	@Override
+	public BoardDTO editContent(BoardDTO boardDTO) {
+		boardMapper.editContent(boardDTO);
+		String listNum = String.valueOf(boardDTO.getlistNum());
+		return boardMapper.viewContent(listNum);
+	}
+
 	
 
 }
