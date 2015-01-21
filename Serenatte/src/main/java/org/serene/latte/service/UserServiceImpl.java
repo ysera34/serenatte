@@ -21,4 +21,10 @@ public class UserServiceImpl implements UserService {
 	public UserDTO userLogin(String userId, String password) {
 		return userMapper.userLogin(userId, password);
 	}
+
+	@Override
+	public boolean userUpdate(UserDTO userDTO) {
+		userMapper.userUpdate(userDTO);
+		return false;
+	}
 }

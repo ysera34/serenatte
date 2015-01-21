@@ -11,5 +11,11 @@
 		SELECT userId, password, nickname, email FROM USERS
 		where userId=#{userId} and password=#{password}
 	</select>
+	
+	<update id="userUpdate">
+		UPDATE USERS
+		set nickname=#{nickname}, password=#{password}, email=#{email}
+		where userId=#{userId}
+	</update>
 
 </mapper>

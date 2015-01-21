@@ -57,14 +57,22 @@ public class UserController {
 		return "redirect:loginform.html";
 	}
 	
-	@RequestMapping("registeredit.html")
-	public String registeredit(){
+	@RequestMapping("editform.html")
+	public String editform(){
 		return "user/userEdit";
 	}
 	
+	@RequestMapping(value="editproc.html", method=RequestMethod.POST)
+	public String editproc(UserDTO userDTO, SessionStatus sessionStatus){
+		
+		userService.userUpdate(userDTO);
+		
+		return "redirect:/";
+	}
+	
 	@RequestMapping("logout.html")
-	public String logout(WebRequest request, SessionStatus status){
-		status.setComplete();
+	public String logout(WebRequest request, SessionStatus sessionStatus){
+		sessionStatus.setComplete();
 		request.removeAttribute("userDTO", WebRequest.SCOPE_SESSION);
 		request.removeAttribute("pageDTO", WebRequest.SCOPE_SESSION);
 		return "redirect:/";

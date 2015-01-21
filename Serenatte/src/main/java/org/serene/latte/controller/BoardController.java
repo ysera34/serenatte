@@ -57,7 +57,7 @@ public class BoardController {
 		//날짜 형식 변경
 		list = convertType.convertDateType(list);
 		model.addAttribute("boardList", list);
-
+		
 		return "board/boardList";
 	}
 	

@@ -13,7 +13,7 @@
 	<div class="row">
 		<div class="col-lg-6 col-lg-offset-3">
 			<div class="page-header">
-				<h2>Join</h2>
+				<h2>함께하기</h2>
 			</div>
 			
 			<form id="joinform" action="registerproc.html" class="form-horizontal" method="post">

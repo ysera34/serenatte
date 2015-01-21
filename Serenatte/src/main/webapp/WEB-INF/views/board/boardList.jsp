@@ -51,7 +51,7 @@ $(document).ready(function(){
 				<div class="col-lg-2">
 					<form id="pSizeForm" action="boardList.html">
 						<select id="pSizeSlt" class="form-control" name="pageSize">
-							<option>선택하세요</option><!-- default -->
+							<option value="10">선택하세요</option><!-- default -->
 							<option value="5">5개씩</option>
 							<option value="10">10개씩</option>
 							<option value="15">15개씩</option>	
