@@ -21,7 +21,7 @@
 		<c:set var="loginbtn" value="Logout"></c:set>
 		<c:set var="loginurl" value="logout.html"></c:set>
 		<c:set var="registerbtn" value="${userDTO.nickname}"></c:set>
-		<c:set var="registerurl" value="registeredit.html"></c:set>
+		<c:set var="registerurl" value="editform.html"></c:set>
 		<c:set var="loginId" value="logoutBtn"></c:set>
 	</c:otherwise>
 </c:choose>
@@ -41,7 +41,7 @@
 		<div class="col-xs-3 col-md-3">
 			<div class="loginBox">
 				<button type="button" id="${loginId}" class="btn btn-default" onclick="location='${loginurl}'">${loginbtn}</button>
-				<button type="button" id="${loginId}" class="btn btn-default" onclick="location='${registerurl}'">${registerbtn}</button>
+				<button type="button" class="btn btn-default" onclick="location='${registerurl}'">${registerbtn}</button>
 			</div>
 		</div>
 	</div>
