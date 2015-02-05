@@ -38,17 +38,16 @@ $(document).ready(function(){
 </c:choose>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-10 col-lg-offset-1">
+		<div class="col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
 			<div class="page-header">
 				<h3>자유게시판</h3>
 			</div>
 			
-			<div class="col-lg-12">
-				<div class="col-lg-2">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+				<div class="col-sm-2 col-md-2 col-lg-2">
 					<button type="button" class="btn btn-default" onclick="${writeBtn}">글쓰기</button>
 				</div>
-				<div class="col-lg-8"></div>	
-				<div class="col-lg-2">
+				<div class="col-sm-offset-8 col-sm-2 col-md-offset-8 col-md-2 col-lg-offset-8 col-lg-2">
 					<form id="pSizeForm" action="boardList.html">
 						<select id="pSizeSlt" class="form-control" name="pageSize">
 							<option value="10">선택하세요</option><!-- default -->
@@ -61,7 +60,7 @@ $(document).ready(function(){
 				</div>
 			</div>
 			
-			<div class="col-lg-12">
+			<div class="col-sm-12 col-md-12 col-lg-12">
 				<div class="table-responsive">
 					<table class="table table-hover">
 						<thead>
@@ -104,10 +103,10 @@ $(document).ready(function(){
 			<div id="board-pagination">
 				<ul class="pagination">
 					<li>
-						<a href="boardList.html?pageNo=${pageDTO.firstPageNo}&pageSize=${pageDTO.pageSize}">처음</a>
+						<a href="boardList.html?pageNo=${pageDTO.firstPageNo}&pageSize=${pageDTO.pageSize}">&laquo;</a>
 					</li>
 					<li>
-						<a href="boardList.html?PageNo=${pageDTO.prevPageNo}&pageSize=${pageDTO.pageSize}" aria-label="Previous" class="prev"><span aria-hidden="true">&laquo;</span></a>
+						<a href="boardList.html?PageNo=${pageDTO.prevPageNo}&pageSize=${pageDTO.pageSize}" aria-label="Previous" class="prev"><span aria-hidden="true">&lsaquo;</span></a>
 					</li>
 					<c:forEach var="i" begin="${pageDTO.startPageNo}" end="${pageDTO.endPageNo}" step="1">
 						<c:choose>
@@ -120,10 +119,10 @@ $(document).ready(function(){
 						</c:choose>
 					</c:forEach>
 					<li>
-						<a href="boardList.html?PageNo=${pageDTO.nextPageNo}&pageSize=${pageDTO.pageSize}" aria-label="Next" class="next"><span aria-hidden="true">&raquo;</span></a>
+						<a href="boardList.html?PageNo=${pageDTO.nextPageNo}&pageSize=${pageDTO.pageSize}" aria-label="Next" class="next"><span aria-hidden="true">&rsaquo;</span></a>
 					</li>
 					<li>
-						<a href="boardList.html?pageNo=${pageDTO.finalPageNo}&pageSize=${pageDTO.pageSize}">마지막</a>
+						<a href="boardList.html?pageNo=${pageDTO.finalPageNo}&pageSize=${pageDTO.pageSize}">&raquo;</a>
 					</li>
 				</ul><!-- pagination -->
 			</div><!-- <span class="sr-only">(current)</span> -->

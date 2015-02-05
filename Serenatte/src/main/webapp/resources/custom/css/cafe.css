@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+.imageChk input{
+   	opacity: 0;
+/*  	display: block; */
+}
+.imageChk #basicInfo1+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/wifi_1.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo1:checked+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/wifi_2.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo2+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/car_1.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo2:checked+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/car_2.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo3+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/24_1.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo3:checked+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/24_2.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo4+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/smoke_1.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo4:checked+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/smoke_2.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo5+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/dessert_1.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo5:checked+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/dessert_2.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo6+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/group_1.png) 0 0 no-repeat;
+}
+.imageChk #basicInfo6:checked+label{
+	height: 60px;
+	width: 60px;
+	background: url(../images/BIicon/group_2.png) 0 0 no-repeat;
+}

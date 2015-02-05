@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.serene.latte.dto.BoardDTO;
+import org.serene.latte.dto.CmtDTO;
 import org.serene.latte.dto.PageDTO;
 import org.serene.latte.pojo.ConvertType;
 import org.serene.latte.pojo.MakePage;
@@ -37,7 +38,7 @@ public class BoardController {
 	 */
 	@RequestMapping("boardList.html")
 	public String boardList(BoardDTO boardDTO, PageDTO pageDTO,
-			Model model){
+			Model model) {
 		//페이징
 		if(pageDTO.getPageNo()==0)
 			pageDTO.setPageNo(1);
@@ -62,7 +63,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("newContents.html")
-	public String newContents(){
+	public String newContents() {
 		return "board/newContents";
 	}
 	
@@ -71,7 +72,7 @@ public class BoardController {
 	 */
 	@RequestMapping(value="addContents.html", method=RequestMethod.POST)
 	public String addContents(@RequestParam String title, @RequestParam String content,
-			@RequestParam String userId){
+			@RequestParam String userId) {
 		boardService.addContents(title, content, userId);
 		return "redirect:boardList.html";
 	}
@@ -82,23 +83,32 @@ public class BoardController {
 	 */
 	@RequestMapping(value="viewContent.html", method=RequestMethod.GET)
 	public String viewContent(@RequestParam int listNum, BoardDTO boardDTO,
-			Model model){
+			Model model) {
 		boardDTO = boardService.viewContent(listNum);
 		model.addAttribute("boardDTO", boardDTO);
 		return "board/contentForm";
 	}
 	
 	@RequestMapping(value="editContent.html", method=RequestMethod.POST)
-	public String editContent(BoardDTO boardDTO, Model model){
+	public String editContent(BoardDTO boardDTO, Model model) {
 		boardDTO = boardService.editContent(boardDTO);
 		model.addAttribute("boardDTO", boardDTO);
 		return "board/contentForm";
 	}
 	
 	@RequestMapping(value="deleteContent.html")
-	public String deleteContent(BoardDTO boardDTO){
+	public String deleteContent(BoardDTO boardDTO) {
 		boardService.deleteContent(boardDTO.getlistNum());
 		return "redirect:boardList.html";
 	}
 	
+	/*
+	 * comment
+	 */
+	@RequestMapping(value="registCmt.html", method=RequestMethod.POST)
+	public String registCmt(CmtDTO cmtDTO) {
+		System.out.println(cmtDTO);
+//		boardService.registCmt(cmtDTO);
+		return "board/contentForm";
+	}
 }

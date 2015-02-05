@@ -7,6 +7,12 @@
 <!-- <title>Insert title here</title> -->
 <!-- </head> -->
 <!-- <body> -->
+<script>
+
+</script>
+<style>
+
+</style>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-10 col-lg-offset-1">
@@ -31,13 +37,19 @@
 				
 				<div class="form-group">
 					<label class="col-lg-3 control-label">옵션</label>
-					<div class="col-lg-6">
-						<input type="checkbox" name="basicInfo1" value="1"/><label>WIFI</label>
-						<input type="checkbox" name="basicInfo2" value="2"/><label>주차</label>
-						<input type="checkbox" name="basicInfo3" value="3"/><label>24시</label>
-						<input type="checkbox" name="basicInfo4" value="4"/><label>흡연</label>
-						<input type="checkbox" name="basicInfo5" value="5"/><label>식사</label>
-						<input type="checkbox" name="basicInfo6" value="6"/><label>세미나실</label>
+					<div class="imageChk col-lg-7">
+						<input type="checkbox" id="basicInfo1" name="basicInfo1" value="1"/><!-- <label>와이파이</label> -->
+						<label for="basicInfo1"></label>
+						<input type="checkbox" id="basicInfo2" name="basicInfo2" value="2"/><!-- <label>주차</label> -->
+						<label for="basicInfo2"></label>
+						<input type="checkbox" id="basicInfo3" name="basicInfo3" value="3"/><!-- <label>24시</label> -->
+						<label for="basicInfo3"></label>
+						<input type="checkbox" id="basicInfo4" name="basicInfo4" value="4"/><!-- <label>흡연</label> -->
+						<label for="basicInfo4"></label>
+						<input type="checkbox" id="basicInfo5" name="basicInfo5" value="5"/><!-- <label>식사</label> -->
+						<label for="basicInfo5"></label>
+						<input type="checkbox" id="basicInfo6" name="basicInfo6" value="6"/><!-- <label>세미나실</label> -->
+						<label for="basicInfo6"></label>
 					</div>
 				</div>
 				

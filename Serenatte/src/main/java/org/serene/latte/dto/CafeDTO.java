@@ -2,28 +2,39 @@ package org.serene.latte.dto;
 
 public class CafeDTO {
 	
+	private int stConNo;
 	private String title;
 	private String comment;
 	private int eval1;
 	private int eval2;
 	private int eval3;
 	private String content;
+	private String writeDate;
 	private int viewCount;
 	private int likeCount;
 
 	public CafeDTO() {}
-	public CafeDTO(String title, String comment, int eval1, int eval2,
-			int eval3, String content, int viewCount, int likeCount) {
+	public CafeDTO(int stConNo, String title, String comment, int eval1,
+			int eval2, int eval3, String content, String writeDate,
+			int viewCount, int likeCount) {
+		this.stConNo = stConNo;
 		this.title = title;
 		this.comment = comment;
 		this.eval1 = eval1;
 		this.eval2 = eval2;
 		this.eval3 = eval3;
 		this.content = content;
+		this.writeDate = writeDate;
 		this.viewCount = viewCount;
 		this.likeCount = likeCount;
 	}
 	
+	public int getStConNo() {
+		return stConNo;
+	}
+	public void setStConNo(int stConNo) {
+		this.stConNo = stConNo;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -60,6 +71,12 @@ public class CafeDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	public String getWriteDate() {
+		return writeDate;
+	}
+	public void setWriteDate(String writeDate) {
+		this.writeDate = writeDate;
+	}
 	public int getViewCount() {
 		return viewCount;
 	}
@@ -75,10 +92,11 @@ public class CafeDTO {
 
 	@Override
 	public String toString() {
-		return "CafeDTO [title=" + title + ", comment=" + comment + ", eval1="
-				+ eval1 + ", eval2=" + eval2 + ", eval3=" + eval3
-				+ ", content=" + content + ", viewCount=" + viewCount
+		return "CafeDTO [stConNo=" + stConNo + ", title=" + title
+				+ ", comment=" + comment + ", eval1=" + eval1 + ", eval2="
+				+ eval2 + ", eval3=" + eval3 + ", content=" + content
+				+ ", writeDate=" + writeDate + ", viewCount=" + viewCount
 				+ ", likeCount=" + likeCount + "]";
 	}
-	
+
 }

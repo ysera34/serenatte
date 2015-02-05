@@ -26,26 +26,26 @@
 	</c:otherwise>
 </c:choose>
 <div class="container">
-<div class="container-fluid">
+<!-- <div class="container-fluid"> -->
 	
 	<div class="row">
-		<div class="col-xs-3 col-md-3"></div>
-		<div class="col-xs-6 col-md-6">
+		<div class="col-xs-1 col-sm-3 col-md-3 col-lg-3"></div>
+		<div class="col-xs-10 col-sm-6 col-md-6 col-lg-6">
 			<div class="header-logo">
 				<a href="/latte/">
-					<img id="headerlogo" src="resources/custom/images/logo/logo.jpg">
+					<img id="headerlogo" class="" src="resources/custom/images/logo/logo.jpg">
 				</a>
 		</div>
 		</div>
 		<!-- login -->
-		<div class="col-xs-3 col-md-3">
+		<div class="col-xs-1 col-sm-3 col-md-3 col-lg-3">
 			<div class="loginBox">
 				<button type="button" id="${loginId}" class="btn btn-default" onclick="location='${loginurl}'">${loginbtn}</button>
 				<button type="button" class="btn btn-default" onclick="location='${registerurl}'">${registerbtn}</button>
 			</div>
 		</div>
 	</div>
-</div>
+<!-- </div> -->
 </div>
 <script>
 $(document).ready(function(){

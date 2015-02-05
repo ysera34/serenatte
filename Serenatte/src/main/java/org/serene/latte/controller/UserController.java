@@ -1,16 +1,24 @@
 package org.serene.latte.controller;
 
+import javax.annotation.Resource;
+
+import org.serene.latte.dto.ImageFile;
 import org.serene.latte.dto.UserDTO;
+import org.serene.latte.pojo.ImageView;
+import org.serene.latte.service.ImageService;
 import org.serene.latte.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @SessionAttributes("userDTO")
@@ -18,6 +26,12 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	ImageService imageService;
+
+	@Resource(name="imageView")
+	ImageView imageView;
 
 	@RequestMapping("/")
 	public String home(){
@@ -63,11 +77,21 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="editproc.html", method=RequestMethod.POST)
-	public String editproc(UserDTO userDTO, SessionStatus sessionStatus){
+	public String editproc(UserDTO userDTO, @RequestParam MultipartFile imageFile, ModelMap modelMap){
 		
 		userService.userUpdate(userDTO);
 		
-		return "redirect:/";
+		ImageFile fileInfo = imageService.save(imageFile);
+		modelMap.put("imageFile", fileInfo);
+		
+		return "user/userEdit";
+	}
+	
+	@RequestMapping("/image/{imageId}")
+	private ImageView getImage(@PathVariable String imageId, ModelMap modelMap) {
+		ImageFile imageFile = imageService.get(imageId);
+		modelMap.put("imageFile", imageFile);
+		return imageView;
 	}
 	
 	@RequestMapping("logout.html")

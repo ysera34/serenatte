@@ -38,9 +38,11 @@ body {
 	
 }
 
-#headerlogo{
-	position: absolute;
-	left: 23.6842%;
+@media screen and (min-width: 460px){
+	#headerlogo{
+		position: absolute;
+		left: 23.6842%;
+	}
 }
 
 .loginBox{
@@ -76,29 +78,21 @@ body {
 	margin-bottom: 25px;
 }
 
+.userimg {
+  border: 1px solid;
+  border-color: gray;
+  border-radius: 10px;
+  width: 120px;
+  height: 120px;
+  margin: 15px auto;
+}
+
 /* ////////////////////////////// */
 /* ///////   boardlist   /////// */
 /* ////////////////////////////// */
 
 #board-pagination {
 	text-align: center;
-}
-
-/* ////////////////////////////// */
-/* ///////  contentForm  /////// */
-/* ////////////////////////////// */
-
-#text-form {
-	width:100%;
-	min-height:315px;
-	padding: 5px 5px 5px 5px;
-	border-width:1px;
-	border-color:#EFEFEF;
-	border-style:solid;
-}
-
-#editBtnDiv {
-	float: right;
 }
 
 .table thead {
@@ -135,7 +129,30 @@ body {
 	text-align: center;
 }
 
-.table body {
+@media screen and (max-width: 1200px){
+	#th-listNum {
+	width:7%;
+	}
+	
+	#th-title {
+		width:45%;
+	}
+	
+	#th-user {
+		width:17%;
+	}
+	
+	#th-views {
+		width:10%;
+	}
+	
+	#th-likes {
+		width:10%;
+	}
+	
+	#th-wDate {
+		width:11%;
+	}
 }
 
 #td-listNum {
@@ -160,3 +177,51 @@ body {
 #td-wDate {
 	text-align: center;
 }
+
+/* ////////////////////////////// */
+/* ///////  contentForm  /////// */
+/* ////////////////////////////// */
+
+#editBtnDiv {
+	float: right;
+}
+
+#text-form {
+	width:100%;
+	min-height:315px;
+	padding: 5px 5px 5px 5px;
+	border-width:1px;
+	border-color:#EFEFEF;
+	border-style:solid;
+}
+
+#newCmt-form {
+	width:100%;
+	min-height:75px;
+	padding: 5px 5px 5px 5px;
+	border-width:1px;
+	border-color:#EFEFEF;
+	border-style:solid;
+}
+
+#cmt-form {
+	width:100%;
+	min-height:115px;
+	padding: 5px 5px 5px 5px;
+	border-width:1px;
+	border-color:#EFEFEF;
+	border-style:solid;
+/* 	position: relative; */
+/* 	float: right; */
+}
+
+.cmtDiv p{
+	text-align: center;
+}
+
+.cmtDiv img{
+	width: 75%;
+	height: auto;
+}
+
+

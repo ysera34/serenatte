@@ -8,6 +8,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="resources/custom/images/icon/coffee.ico">
 <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="resources/custom/css/main.css">
+<link rel="stylesheet" href="resources/custom/css/cafe.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="resources/bootstrap/js/bootstrap.js"></script>
 </head>
