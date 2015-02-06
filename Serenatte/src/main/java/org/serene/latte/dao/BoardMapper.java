@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.serene.latte.dto.BoardDTO;
+import org.serene.latte.dto.CmtDTO;
 
 public interface BoardMapper {
 
@@ -21,5 +22,9 @@ public interface BoardMapper {
 	public void deleteContent(int listNum);
 
 	public void editContent(BoardDTO boardDTO);
+
+	public void registCmt(CmtDTO cmtDTO);
+	
+	public List<CmtDTO> cmtList(CmtDTO cmtDTO);
 
 }

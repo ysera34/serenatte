@@ -79,29 +79,41 @@ function alertLogin(){
 					
 					<div class="form-group cmtDiv">
 						<div class="col-lg-2 col-md-2 col-sm-2">
-							<p><img alt="test" src=""></p>
+							<p><img alt="userImage" src="${userDTO.profilePath}"></p>
 							<p>${userDTO.userId}</p>
 						</div>
 						<div class="col-lg-10 col-md-10 col-sm-10">
 							<textarea id="newCmt-form" name="cmt" rows="4" required="required"></textarea>
 							<div id="cmtBtnDiv">
-								<button id='cmtBtn' type='button' class='btn btn-default' style='float:right; display:none;'>댓글올리기</button>
+								<button id='cmtBtn' type='submit' class='btn btn-default' style='float:right; display:none;'>댓글올리기</button>
 							</div>
 						</div>
 					</div>
 					
-<%-- 			<c:forEach var="cmtDTO" items="${cmtList}">
-					<div class="form-group cmtDiv">
-						<div>${cmtDTO.writeDate}</div>
-						<div class="col-lg-2 col-md-2 col-sm-2">
-							<p><img alt="test" src=""></p>
-							<p>${cmtDTO.userId}</p>
+					<!-- forEach -->
+					<c:forEach var="cmtDTO" items="${cmtList}">
+						<div class="form-group cmtDiv">
+<%-- 							<div>${cmtDTO.writeDate}</div> --%>
+							<div class="col-lg-2 col-md-2 col-sm-2">
+								<p><img alt="userImage" src="${cmtDTO.imagePath}"></p>
+								<p>${cmtDTO.writeId}</p>
+							</div>
+							<div class="col-lg-10 col-md-10 col-sm-10">
+								<div id="cmt-form">${cmtDTO.cmt}</div>
+							</div>
 						</div>
-						<div class="col-lg-10 col-md-10 col-sm-10">
-							<div id="cmt-form">${cmtDTO.cmt}</div>
-						</div>
-					</div>
- 				</c:forEach> --%>
+	 				</c:forEach>
+	 				
+	 				<!-- table ajax -->
+	 				<table class="table table-hover cmtDiv">
+	 					<c:forEach var="cmtDTO" items="${cmtList}">
+	 						<tr>
+	 							<td>${cmtDTO.writeId}</td>
+	 							<td>${cmtDTO.cmt}</td>
+	 						</tr>
+	 					</c:forEach>
+	 				</table>
+	 				
 				</form>
 			</div>
 		</div>
@@ -149,6 +161,10 @@ $(document).ready(function(){
 		$("#editBtnDiv button:odd").css("display","none");
 	});
 	
+	if($(".cmtDiv img").attr("src")==""){
+		$(".cmtDiv img").attr("src","resources/custom/images/icon/profile.png")
+	}
+	
 	$("#newCmt-form").click(function(){
 		if($("#cmtWriter").val()==""){
 			$("#cmtWriter").detach();
@@ -164,12 +180,11 @@ $(document).ready(function(){
 	});
 	
 	$("#cmtBtn").click(function(){
-		alert("test");
 		//스크립트가 로딩됬을때 element가 없엇으므로 안되는것이라고 생각됨.
 		//css display none -> inline로 미리 만들어 놓고  필요시 css를 바꿔서 사용해야될거 같음.
 		
 		//ajax
-		
+		//list를 테이블 형식으로 만들어서 tr을 늘리기 해봄세.		
 	});
 });
 </script>

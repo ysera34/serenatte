@@ -14,7 +14,8 @@
 	
 	<update id="userUpdate">
 		UPDATE USERS
-		set nickname=#{nickname}, password=#{password}, email=#{email}
+		set nickname=#{nickname}, password=#{password}, email=#{email},
+		profilePath=#{profilePath}
 		where userId=#{userId}
 	</update>
 

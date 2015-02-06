@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.serene.latte.dao.BoardMapper;
 import org.serene.latte.dto.BoardDTO;
+import org.serene.latte.dto.CmtDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +46,14 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.viewContent(boardDTO.getlistNum());
 	}
 
-	
+	@Override
+	public void registCmt(CmtDTO cmtDTO) {
+		boardMapper.registCmt(cmtDTO);
+	}
+
+	@Override
+	public List<CmtDTO> cmtList(CmtDTO cmtDTO) {
+		return boardMapper.cmtList(cmtDTO);
+	}
 
 }

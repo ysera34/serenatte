@@ -20,19 +20,27 @@ function readURL(input) {
    }
 }
 $(document).ready(function(){
+	$("#blah").mouseover(function(){
+		$(this).css("cursor","pointer");
+	});
 	$("#blah").click(function(){
 		$("#imgInput").trigger("click");
 	});
+	if($("#blah").attr("src")==""){
+		$("#blah").attr("src","resources/custom/images/icon/profile.png")
+	}
 });
+
 </script>
-<c:choose>
+<%-- <c:choose>
 	<c:when test="${imageFile != null}">
-		<c:set var="imagePath" value="${pageContext.request.contextPath}/image/${imageFile.id}"></c:set>
+		<c:set var="imagePath" value="${pageContext.request.contextPath}/image/${imageFile.id}"></c:set> 
+		<c:set var="imagePath" value="${userDTO.profilePath}"></c:set> 
 	</c:when>
 	<c:otherwise>
 		<c:set var="imagePath" value="resources/custom/images/icon/profile.png"></c:set>
 	</c:otherwise>
-</c:choose>
+</c:choose>--%>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
@@ -43,7 +51,7 @@ $(document).ready(function(){
 			<form id="joinform" action="editproc.html" class="form-horizontal" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<div class="col-xs-offset-4 col-xs-4 col-sm-offset-4 col-sm-4 col-md-offset-4 col-md-4 col-lg-offset-5 col-lg-6">
-						<img alt="" src="${imagePath}" id="blah" class="userimg"/>
+						<img alt="" src="${userDTO.profilePath}" id="blah" class="userimg"/>
 					</div>
 					<div class="col-xs-offset-4 col-xs-4 col-sm-offset-4 col-sm-4 col-md-offset-4 col-md-4 col-lg-offset-5 col-lg-6">
 						<input id="imgInput" type="file" onchange="readURL(this);" name="imageFile" style="display:none">

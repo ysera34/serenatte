@@ -82,10 +82,12 @@ public class BoardController {
 	 * a href="viewContent.html?listNum=${boardDTO.listNum}"
 	 */
 	@RequestMapping(value="viewContent.html", method=RequestMethod.GET)
-	public String viewContent(@RequestParam int listNum, BoardDTO boardDTO,
+	public String viewContent(@RequestParam int listNum, BoardDTO boardDTO, CmtDTO cmtDTO,
 			Model model) {
 		boardDTO = boardService.viewContent(listNum);
 		model.addAttribute("boardDTO", boardDTO);
+		List<CmtDTO> cmtList = boardService.cmtList(cmtDTO);
+		model.addAttribute("cmtList", cmtList);
 		return "board/contentForm";
 	}
 	
@@ -106,9 +108,12 @@ public class BoardController {
 	 * comment
 	 */
 	@RequestMapping(value="registCmt.html", method=RequestMethod.POST)
-	public String registCmt(CmtDTO cmtDTO) {
-		System.out.println(cmtDTO);
-//		boardService.registCmt(cmtDTO);
+	public String registCmt(CmtDTO cmtDTO, Model model, @RequestParam int listNum, BoardDTO boardDTO) {
+		boardService.registCmt(cmtDTO);
+		boardDTO = boardService.viewContent(listNum);
+		model.addAttribute("boardDTO", boardDTO);
+		List<CmtDTO> cmtList = boardService.cmtList(cmtDTO);
+		model.addAttribute("cmtList", cmtList);
 		return "board/contentForm";
 	}
 }

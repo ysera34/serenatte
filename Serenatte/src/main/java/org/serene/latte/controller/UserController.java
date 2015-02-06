@@ -77,13 +77,20 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="editproc.html", method=RequestMethod.POST)
-	public String editproc(UserDTO userDTO, @RequestParam MultipartFile imageFile, ModelMap modelMap){
+	public String editproc(UserDTO userDTO, @RequestParam MultipartFile imageFile, 
+			ModelMap modelMap, Model model){
+		
+		ImageFile fileInfo = imageService.save(imageFile, userDTO.getUserId());
+		modelMap.put("imageFile", fileInfo);
+
+		System.out.println(fileInfo.getId());
+		System.out.println(fileInfo.IMAGE_DIR);
+		System.out.println(fileInfo.getFileName());
+
+		userDTO.setProfilePath("/latte/image/"+fileInfo.getId());
 		
 		userService.userUpdate(userDTO);
-		
-		ImageFile fileInfo = imageService.save(imageFile);
-		modelMap.put("imageFile", fileInfo);
-		
+		model.addAttribute("userDTO", userDTO);
 		return "user/userEdit";
 	}
 	

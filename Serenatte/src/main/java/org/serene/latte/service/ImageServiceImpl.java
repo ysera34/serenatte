@@ -20,15 +20,18 @@ public class ImageServiceImpl implements ImageService{
 		imageFilesMap = new HashMap();
 	}
 	
-	public ImageFile get(String id) {
-		return (ImageFile) imageFilesMap.get(id);
+	public ImageFile get(String imageId) {
+		return (ImageFile) imageFilesMap.get(imageId);
 	}
 	
-	public ImageFile save(MultipartFile multipartFile) {
-		String genId = UUID.randomUUID().toString();
+	public ImageFile save(MultipartFile multipartFile, String userId) {
+		
+		//파일이름 랜덤으로 만들기
+		String genId = userId + "_" + UUID.randomUUID().toString();
 		ImageFile imageFile = null;
 		
 		try {
+			//파일이름만들기
 			String savedFileName = saveToFile(multipartFile, genId);
 			
 			imageFile = new ImageFile(genId, multipartFile.getContentType(), (int)multipartFile.getSize(), savedFileName);
@@ -40,11 +43,15 @@ public class ImageServiceImpl implements ImageService{
 		return imageFile;
 	}
 	
-	public String saveToFile(MultipartFile src, String id) throws IOException {
+	public String saveToFile(MultipartFile src, String genId) throws IOException {
 
+		//원래이름
 		String fileName = src.getOriginalFilename();
+		//사이즈
 		byte[] bytes = src.getBytes();
-		String saveFileName = id + "." + getExtension(fileName);
+		//저장할 이름 = 넘어온 랜덤 string + 원래 파일 확장자
+		String saveFileName = genId + "." + getExtension(fileName);
+		//경로 = static경로 + 파일이름
 		String savePath = ImageFile.IMAGE_DIR + saveFileName;
 		
 		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(savePath));

@@ -4,18 +4,20 @@ public class CmtDTO {
 	
 	private int cmtNum;
 	private int listNum;
-	private String userId;
+	private String writeId;
 	private String cmt;
 	private String writeDate;
-
+	private String imagePath;
+	
 	public CmtDTO() {}
-	public CmtDTO(int cmtNum, int listNum, String userId, String cmt,
-			String writeDate) {
+	public CmtDTO(int cmtNum, int listNum, String writeId, String cmt,
+			String writeDate, String imagePath) {
 		this.cmtNum = cmtNum;
 		this.listNum = listNum;
-		this.userId = userId;
+		this.writeId = writeId;
 		this.cmt = cmt;
 		this.writeDate = writeDate;
+		this.imagePath = imagePath;
 	}
 
 	public int getCmtNum() {
@@ -30,11 +32,11 @@ public class CmtDTO {
 	public void setListNum(int listNum) {
 		this.listNum = listNum;
 	}
-	public String getUserId() {
-		return userId;
+	public String getwriteId() {
+		return writeId;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setwriteId(String writeId) {
+		this.writeId = writeId;
 	}
 	public String getCmt() {
 		return cmt;
@@ -48,12 +50,18 @@ public class CmtDTO {
 	public void setWriteDate(String writeDate) {
 		this.writeDate = writeDate;
 	}
-	
+	public String getImagePath() {
+		return imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
 	@Override
 	public String toString() {
 		return "CmtDTO [cmtNum=" + cmtNum + ", listNum=" + listNum
-				+ ", userId=" + userId + ", cmt=" + cmt + ", writeDate="
-				+ writeDate + "]";
+				+ ", writeId=" + writeId + ", cmt=" + cmt + ", writeDate="
+				+ writeDate + ", imagePath=" + imagePath + "]";
 	}
 	
 }

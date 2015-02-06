@@ -60,4 +60,19 @@
 		set content=#{content}
 		where listNum=#{listNum}
 	</update>
+	
+	<!-- comment -->
+	<insert id="registCmt">
+		INSERT INTO FCOMMENTS(cmtNum, writeId, listNum, cmt)
+		VALUES (#{cmtNum}, #{writeId}, #{listNum}, #{cmt})
+	</insert>
+	
+	<select id="cmtList" resultType="CmtDTO">
+		select cmtNum, writeId, listNum, cmt, writeDate,
+		(select profilePath from users where userId=writeId)imagePath 
+		FROM FCOMMENTS
+		where listNum=#{listNum}
+		ORDER BY cmtNum DESC
+	</select>
+	
 </mapper>

@@ -220,8 +220,11 @@ body {
 }
 
 .cmtDiv img{
-	width: 75%;
+	max-width: 65px;
+	width: 70%;
+	max-height: 65px;
 	height: auto;
+	
 }
 
 
