@@ -108,7 +108,8 @@ public class BoardController {
 	 * comment
 	 */
 	@RequestMapping(value="registCmt.html", method=RequestMethod.POST)
-	public String registCmt(CmtDTO cmtDTO, Model model, @RequestParam int listNum, BoardDTO boardDTO) {
+	public String registCmt(CmtDTO cmtDTO, Model model, @RequestParam int listNum, @RequestParam String userId, BoardDTO boardDTO) {
+		cmtDTO.setwriteId(userId);
 		boardService.registCmt(cmtDTO);
 		boardDTO = boardService.viewContent(listNum);
 		model.addAttribute("boardDTO", boardDTO);

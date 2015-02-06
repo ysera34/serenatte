@@ -3,6 +3,7 @@ package org.serene.latte.dto;
 public class ImageFile {
 
 	public static final String IMAGE_DIR = "D:\\test\\";
+//	public static final String IMAGE_DIR = "C:\\serenatteImage\\";
 	
 	private String id;
 	private String contentType;
