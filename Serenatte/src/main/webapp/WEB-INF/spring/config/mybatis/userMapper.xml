@@ -8,7 +8,7 @@
 	</insert>
 	
 	<select id="userLogin" parameterType="string" resultType="UserDTO">
-		SELECT userId, password, nickname, email FROM USERS
+		SELECT userId, password, nickname, email, profilePath FROM USERS
 		where userId=#{userId} and password=#{password}
 	</select>
 	

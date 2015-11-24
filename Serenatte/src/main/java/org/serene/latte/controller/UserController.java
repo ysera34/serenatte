@@ -87,6 +87,7 @@ public class UserController {
 		System.out.println(fileInfo.IMAGE_DIR);
 		System.out.println(fileInfo.getFileName());
 
+//		userDTO.setProfilePath(fileInfo.IMAGE_DIR+fileInfo.getFileName());
 		userDTO.setProfilePath("/latte/image/"+fileInfo.getId());
 		
 		userService.userUpdate(userDTO);

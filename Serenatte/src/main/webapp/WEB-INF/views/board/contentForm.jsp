@@ -79,8 +79,8 @@ function alertLogin(){
 					
 					<div class="form-group cmtDiv">
 						<div class="col-lg-2 col-md-2 col-sm-2">
-							<p><img alt="userImage" src="${userDTO.profilePath}"></p>
-							<p>${userDTO.userId}</p>
+							<p><img id="cmtUserImg" alt="userImage" src="${userDTO.profilePath}"></p>
+							<p id="cmtUserId">${userDTO.userId}</p>
 						</div>
 						<div class="col-lg-10 col-md-10 col-sm-10">
 							<textarea id="newCmt-form" name="cmt" rows="4" required="required"></textarea>
@@ -105,14 +105,14 @@ function alertLogin(){
 	 				</c:forEach>
 	 				
 	 				<!-- table ajax -->
-	 				<table class="table table-hover cmtDiv">
-	 					<c:forEach var="cmtDTO" items="${cmtList}">
-	 						<tr>
-	 							<td>${cmtDTO.writeId}</td>
-	 							<td>${cmtDTO.cmt}</td>
-	 						</tr>
-	 					</c:forEach>
-	 				</table>
+<!-- 	 				<table class="table table-hover cmtDiv"> -->
+<%-- 	 					<c:forEach var="cmtDTO" items="${cmtList}"> --%>
+<!-- 	 						<tr> -->
+<%-- 	 							<td>${cmtDTO.writeId}</td> --%>
+<%-- 	 							<td>${cmtDTO.cmt}</td> --%>
+<!-- 	 						</tr> -->
+<%-- 	 					</c:forEach> --%>
+<!-- 	 				</table> -->
 	 				
 				</form>
 			</div>
@@ -161,10 +161,16 @@ $(document).ready(function(){
 		$("#editBtnDiv button:odd").css("display","none");
 	});
 	
-	if($(".cmtDiv img").attr("src")==""){
-		$(".cmtDiv img").attr("src","resources/custom/images/icon/profile.png")
+	//사용자 이미지 없을 시에 default
+	if("${userDTO.profilePath}"==""){
+		$("#cmtUserImg").attr("src","resources/custom/images/icon/profile.png")
 	}
 	
+	if("${userDTO.userId}"==""){
+		$("#cmtUserId").text("방문자");
+	}
+	
+	//댓글 작성 form 클릭시 변경 항목
 	$("#newCmt-form").click(function(){
 		if($("#cmtWriter").val()==""){
 			$("#cmtWriter").detach();
