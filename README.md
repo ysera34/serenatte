@@ -2,5 +2,3 @@ serenatte
 =========
 
 serenatte
-
-Serene + Latte
